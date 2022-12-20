@@ -1,5 +1,10 @@
 import './style.css'
 import modals from './modules/modals'; 
 
-export default modals
+window.addEventListener('DOMContentLoaded', () => {
+  'use strict';
+
+
+  modals()
+})
 
