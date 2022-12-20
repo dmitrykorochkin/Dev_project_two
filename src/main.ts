@@ -1,4 +1,9 @@
-import './style.css'
+import  {modals}  from './modules/modals'; 
+
+window.addEventListener('DOMContentLoaded', (): void => {
+ 
 
 
+  modals();
+});
 
