@@ -1,8 +1,8 @@
 export const modals = (): void => {
     const bindModal = (triggerSelector: string, modalSelector: string, closeSelector: string, closeClickOverlay = true): void => {
       const triggers: NodeListOf<HTMLElement> = document.querySelectorAll(triggerSelector);
-      const modal: any = document.querySelector(modalSelector);
-      const close: any = document.querySelector(closeSelector);
+      const modal: Element | null = document.querySelector(modalSelector);
+      const close: Element | null = document.querySelector(closeSelector);
       const windows: NodeListOf<Element> = document.querySelectorAll('[data-modal]');
       const scroll: number = calcScroll()
   
