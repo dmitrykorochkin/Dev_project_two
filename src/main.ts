@@ -1,10 +1,9 @@
-import './style.css'
-import modals from './modules/modals'; 
+import  {modals}  from './modules/modals'; 
 
-window.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+window.addEventListener('DOMContentLoaded', (): void => {
+ 
 
 
-  modals()
-})
+  modals();
+});
 

@@ -4,7 +4,7 @@ export const modals = (): void => {
       const modal: HTMLElement = document.querySelector(modalSelector) as HTMLDivElement;
       const close: HTMLElement  = document.querySelector(closeSelector) as HTMLDivElement;
       const windows: NodeListOf<Element> = document.querySelectorAll('[data-modal]');
-      const scroll: number = calcScroll()
+      const scroll: number = calcScroll();
   
       triggers.forEach((trigger: Element): void => {
         trigger.addEventListener("click", (e: Event): void => {
@@ -87,8 +87,7 @@ export const modals = (): void => {
   
     bindModal('.button-design','.popup-design', '.popup-design .popup-close');
     
-    showModalByTime(".popup", 3000);
+    // showModalByTime(".popup", 3000);
   };
   
   
-  export default modals;
