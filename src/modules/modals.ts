@@ -87,7 +87,7 @@ export const modals = (): void => {
   
     bindModal('.button-design','.popup-design', '.popup-design .popup-close');
     
-    // showModalByTime(".popup", 3000);
+    showModalByTime(".popup", 3000);
   };
   
   
