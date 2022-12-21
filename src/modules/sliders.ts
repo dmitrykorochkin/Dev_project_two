@@ -16,7 +16,7 @@ export const sliders =
         const items: NodeListOf<HTMLElement> = document.querySelectorAll(slides);
 
 
-        const showSlides = (i): void => {
+        const showSlides = (i:number): void => {
             if (i > items.length) {
                 slideIndex = 1;
             }
@@ -54,12 +54,12 @@ export const sliders =
         }
         const activateAnimation = () => {
             if (dir === 'vertical') {
-                paused = setInterval(function (): void {
+                paused =  <any>setInterval(function (): void {
                     plusSlides(1);
                     items[slideIndex - 1].classList.add('sliderInDown');
                 }, 5000)
             } else {
-                paused = setInterval(function (): void {
+                paused =  <any>setInterval(function (): void {
                     plusSlides(1);
                     items[slideIndex - 1].classList.remove('slideInRight');
                     items[slideIndex - 1].classList.add('slideInLeft');
@@ -70,7 +70,7 @@ export const sliders =
             clearInterval(paused);
         })
         items[0].parentNode?.addEventListener('mouseleave', () => {
-            activateAnimation
+            activateAnimation();
         })
 
 
