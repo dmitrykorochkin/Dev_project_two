@@ -12,7 +12,7 @@ export const sliders =
             next?: any
         }): void => {
         let slideIndex: number = 1;
-        let paused: boolean | Timer = false;
+        let paused: boolean = false;
         const items: NodeListOf<HTMLElement> = document.querySelectorAll(slides);
 
 
