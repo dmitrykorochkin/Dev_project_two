@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
     next: '.main-next-btn'
   });
   sliders({
-    slides:'main-slider-item', 
+    slides:'.main-slider-item', 
     dir:'vertical'
   });
 });

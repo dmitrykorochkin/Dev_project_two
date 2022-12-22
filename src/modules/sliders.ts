@@ -72,12 +72,10 @@ export const sliders =
             }
         }
         const parentNode = items[0]?.parentNode
+        activateAnimation();
         if (parentNode) {
             parentNode.addEventListener('mouseenter', () => {
                 clearInterval(paused);
-            })
-            parentNode.addEventListener('mouseleave', () => {
-                activateAnimation();
             })
 
         }
