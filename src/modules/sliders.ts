@@ -5,18 +5,19 @@ export const sliders =
         prev,
         next
     }:
-        {
-            slides: string,
-            dir: string,
-            prev?: any,
-            next?: any
-        }): void => {
+    {
+        slides: string,
+        dir: string,
+        prev?: any,
+        next?: any
+    }): void => {
+
         let slideIndex: number = 1;
-        let paused: boolean = false;
+        let paused: number;
         const items: NodeListOf<HTMLElement> = document.querySelectorAll(slides);
 
 
-        const showSlides = (i:number): void => {
+        const showSlides = (i: number): void => {
             if (i > items.length) {
                 slideIndex = 1;
             }
@@ -54,12 +55,12 @@ export const sliders =
         }
         const activateAnimation = () => {
             if (dir === 'vertical') {
-                paused =  <any>setInterval(function (): void {
+                paused = <any>setInterval(function (): void {
                     plusSlides(1);
                     items[slideIndex - 1].classList.add('sliderInDown');
                 }, 5000)
             } else {
-                paused =  <any>setInterval(function (): void {
+                paused = <any>setInterval(function (): void {
                     plusSlides(1);
                     items[slideIndex - 1].classList.remove('slideInRight');
                     items[slideIndex - 1].classList.add('slideInLeft');
