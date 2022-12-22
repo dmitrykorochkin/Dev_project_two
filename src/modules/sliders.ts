@@ -5,12 +5,13 @@ export const sliders =
         prev,
         next
     }:
-        {
-            slides: string,
-            dir: string,
-            prev?: any,
-            next?: any
-        }): void => {
+    {
+        slides: string,
+        dir: string,
+        prev?: any,
+        next?: any
+
+    }): void => {
 
         let slideIndex: number = 1;
         let paused: number;
@@ -36,7 +37,7 @@ export const sliders =
         }
         showSlides(slideIndex);
 
-        const plusSlides = (i: any): void => {
+        const plusSlides = (i: number): void => {
             showSlides(slideIndex += i);
         }
 
@@ -54,14 +55,13 @@ export const sliders =
                 items[slideIndex - 1].classList.remove('slideInRight');
                 items[slideIndex - 1].classList.add('slideInLeft');
             })
-        } catch (e) {
+        } catch (e) {}
 
-        }
         const activateAnimation = () => {
             if (dir === 'vertical') {
                 paused = <any>setInterval(function (): void {
                     plusSlides(1);
-                    items[slideIndex - 1].classList.add('sliderInDown');
+                    items[slideIndex - 1].classList.add('slideInDown');
                 }, 5000)
             } else {
                 paused = <any>setInterval(function (): void {
