@@ -5,12 +5,12 @@ export const sliders =
         prev,
         next
     }:
-    {
-        slides: string,
-        dir: string,
-        prev?: any,
-        next?: any
-    }): void => {
+        {
+            slides: string,
+            dir: string,
+            prev?: any,
+            next?: any
+        }): void => {
 
         let slideIndex: number = 1;
         let paused: number;
@@ -28,7 +28,11 @@ export const sliders =
                 item.classList.add('animated');
                 item.style.display = 'none';
             })
-            items[slideIndex - 1].style.display = 'block';
+            const lastElement = items[slideIndex - 1] as HTMLElement
+            if (lastElement) {
+                lastElement.style.display = 'block';
+            }
+
         }
         showSlides(slideIndex);
 
@@ -67,13 +71,15 @@ export const sliders =
                 }, 5000)
             }
         }
-        items[0].parentNode?.addEventListener('mouseenter', () => {
-            clearInterval(paused);
-        })
-        items[0].parentNode?.addEventListener('mouseleave', () => {
-            activateAnimation();
-        })
+        const parentNode = items[0]?.parentNode
+        if (parentNode) {
+            parentNode.addEventListener('mouseenter', () => {
+                clearInterval(paused);
+            })
+            parentNode.addEventListener('mouseleave', () => {
+                activateAnimation();
+            })
 
-
+        }
 
     }
