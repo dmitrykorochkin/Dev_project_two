@@ -1,5 +1,7 @@
 // import checkNumberInputs from './checkNumberInputs'
 
+import { DataHTMLAttributes } from "vue";
+
 export const form = (): void => {
     const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form');
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
