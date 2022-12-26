@@ -3,6 +3,7 @@
 export const form = (): void => {
     const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form');
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
+    const upload: NodeListOf<Element> = document.querySelectorAll('[name="upload"]');
 
 
     // checkNumberInputs('input[name="user_phone"]')
@@ -13,24 +14,24 @@ export const form = (): void => {
         failure: string,
         spinner: string;
         ok: string;
-        fail:string;
+        fail: string;
     }
     const message: MessageType = {
-        loading:'Загрузка...',
+        loading: 'Загрузка...',
         success: 'Спасибо! Скоро мы с вами свяжемся',
         failure: 'Что то пошло не так...',
         spinner: 'assets/img/spinner.gif',
-        ok:'assets/img/ok.png',
-        fail:'assets/img/fail.png'
-    } 
+        ok: 'src/img/ok.png',
+        fail: 'src/img/fail.png'
+    }
 
     type pathType = {
         designer: string,
         question: string
     }
     const path: pathType = {
-        designer:'assets/server.php',
-        question: 'assets/question.php'
+        designer: 'src/server.php',
+        question: 'src/question.php'
     }
 
     const postData = async (url: string, data: string): Promise<string> => {
@@ -46,7 +47,19 @@ export const form = (): void => {
         inputs.forEach(input => {
             input.value = '';
         })
+        upload.forEach(form => {
+            form.previousElementSibling.textContent = 'Файл не выбран';
+        })
     }
+    upload.forEach(form => {
+        form.addEventListener('input', (): void => {
+            let dots: string;
+            const arr: Array<string> = form.files[0].name.split('.')
+            arr[0].length > 5 ? dots = '...' : dots = '.';
+            const name = arr.substring(0, 6) + dots + arr[1];
+            form.previousElementSibling.textContent = name;
+        })
+    })
 
     forms.forEach(form => {
         form.addEventListener('submit', (e: Event) => {
@@ -70,7 +83,7 @@ export const form = (): void => {
 
             const formData: any = new FormData(form);
             let api: any;
-            form.closest('.popup-design') ? api = path.designer : api = path.question
+            form.closest('.popup-design') || form.classList.contains('calc_form') ? api = path.designer : api = path.question
 
             postData(api, formData)
                 .then(res => {
@@ -86,6 +99,9 @@ export const form = (): void => {
                     clearInputs();
                     setTimeout(() => {
                         statusMessage.remove();
+                        form.style.display = 'block';
+                        form.classList.remove('fadeOutUp');
+                        form.classList.add('fadeInUp');
                     }, 5000);
                 })
         })
