@@ -3,7 +3,7 @@
 export const form = (): void => {
     const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form');
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
-    const upload: NodeListOf<Element> = document.querySelectorAll('[name="upload"]');
+    const uploads: any = document.querySelectorAll('[name="upload"]');
 
 
     // checkNumberInputs('input[name="user_phone"]')
@@ -47,17 +47,18 @@ export const form = (): void => {
         inputs.forEach(input => {
             input.value = '';
         })
-        upload.forEach(form => {
-            form.previousElementSibling.textContent = 'Файл не выбран';
+        uploads.forEach(upload => {
+            upload.previousElementSibling.textContent = 'Файл не выбран';
         })
     }
-    upload.forEach(form => {
-        form.addEventListener('input', (): void => {
+    uploads.forEach(upload => {
+        upload.addEventListener('input', (): void => {
+            
             let dots: string;
-            const arr: Array<string> = form.files[0].name.split('.')
+            const arr: any = upload.files[0].name.split('.')
             arr[0].length > 5 ? dots = '...' : dots = '.';
-            const name = arr.substring(0, 6) + dots + arr[1];
-            form.previousElementSibling.textContent = name;
+            const name: any = arr.substring(0, 6) + dots + arr[1];
+            upload.previousElementSibling.textContent = name
         })
     })
 
@@ -66,7 +67,7 @@ export const form = (): void => {
             e.preventDefault();
             const statusMessage: Element = document.createElement('div');
             statusMessage.classList.add('status');
-            form.parentNode.appendChild(statusMessage);
+            form.parentNode?.appendChild(statusMessage);
 
             form.classList.add('animated', 'fadeOutUp');
             setTimeout(() => {
