@@ -58,8 +58,8 @@ export const form = (): void => {
             let dots: string;
             const arr: string[] = (upload.files as FileList)[0].name.split('.')
             arr[0].length > 5 ? dots = '...' : dots = '.';
-            const name: any = arr.substring(0, 6) + dots + arr[1];
-            (upload.previousElementSibling as HTMLElement).textContent = name
+            const name: string  = arr.toString().substring(0, 6) + (dots as string) + (arr as string[])[1];
+            (upload.previousElementSibling as HTMLElement).textContent = name;
         })
     })
 
