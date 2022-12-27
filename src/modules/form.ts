@@ -53,14 +53,14 @@ export const form = (): void => {
         })
     }
     uploads.forEach(upload => {
-        upload.addEventListener('input', (): void => {
-            
+        upload.addEventListener('input', (): void => {       
             let dots: string;
             const arr: string[] = (upload.files as FileList)[0].name.split('.')
             arr[0].length > 5 ? dots = '...' : dots = '.';
             const name: string  = arr.toString().substring(0, 6) + (dots as string) + (arr as string[])[1];
             (upload.previousElementSibling as HTMLElement).textContent = name;
-        })
+        
+        });
     })
 
     forms.forEach(form => {
@@ -68,7 +68,7 @@ export const form = (): void => {
             e.preventDefault();
             const statusMessage: Element = document.createElement('div');
             statusMessage.classList.add('status');
-            form.parentNode?.appendChild(statusMessage);
+            form.parentNode?.append(statusMessage);
 
             form.classList.add('animated', 'fadeOutUp');
             setTimeout(() => {
@@ -88,8 +88,7 @@ export const form = (): void => {
             form.closest('.popup-design') || form.classList.contains('calc_form') ? api = path.designer : api = path.question
 
             postData(api, formData)
-                .then(res => {
-                    console.log(res);
+                .then((): any => {
                     statusImg.setAttribute('src', message.ok)
                     textMessage.textContent = message.success;
                 })
