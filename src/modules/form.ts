@@ -54,12 +54,12 @@ export const form = (): void => {
     }
     uploads.forEach(upload => {
         upload.addEventListener('input', (): void => {
-            let dots: string;
-            const arr: string[] = (upload.files as FileList)[0].name.split('.')
-            arr[0].length > 5 ? dots = '...' : dots = '.';
-            const name: string = arr.toString().substring(0, 6) + (dots as string) + (arr as string[])[1];
+            const file = (upload.files as FileList)[0];
+            const fileName:string = file.name.split('.')[0];
+            const dots: string = fileName.length > 6 ? '...' : '.';
+            const fileExt = file.name.split('.')[1];
+            const name: string = `${fileName.toString().substring(0, 6)}${dots}${fileExt}`;
             (upload.previousElementSibling as HTMLElement).textContent = name;
-
         });
     })
 
