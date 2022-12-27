@@ -4,7 +4,7 @@
 export const form = (): void => {
     const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form');
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
-    const uploads: any = document.querySelectorAll('[name="upload"]');
+    const uploads: NodeListOf<HTMLInputElement> = document.querySelectorAll('[name="upload"]');
 
 
     // checkNumberInputs('input[name="user_phone"]')
@@ -49,17 +49,17 @@ export const form = (): void => {
             input.value = '';
         })
         uploads.forEach(upload => {
-            upload.previousElementSibling.textContent = 'Файл не выбран';
+            (upload.previousElementSibling as HTMLElement).textContent = 'Файл не выбран';
         })
     }
     uploads.forEach(upload => {
         upload.addEventListener('input', (): void => {
             
             let dots: string;
-            const arr: any = upload.files[0].name.split('.')
+            const arr: string[] = (upload.files as FileList)[0].name.split('.')
             arr[0].length > 5 ? dots = '...' : dots = '.';
             const name: any = arr.substring(0, 6) + dots + arr[1];
-            upload.previousElementSibling.textContent = name
+            (upload.previousElementSibling as HTMLElement).textContent = name
         })
     })
 
