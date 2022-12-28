@@ -1,5 +1,5 @@
 
-export const mask = (selector:  NodeListOf<HTMLInputElement>): void => {
+export const mask = (selector: string): void => {
 
     const setCursorPosition = (pos: any, elem: any) => {
         elem.focus();
