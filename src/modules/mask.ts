@@ -19,20 +19,20 @@ export const mask = (selector:  NodeListOf<HTMLInputElement>): void => {
         const matrix: string = `+7 (___) ___ __ __`;
         let iterator: number = 0;
         const def: string = matrix.replace(/\D/g, '');
-        let value: string = this.value.replace(/\D/g, '');
+        let value: string = (this as any).value.replace(/\D/g, '');
 
         if (def.length >= value.length) {
             value = def
         }
-        this.value = matrix.replace(/./g, function (a: string): string {
+        (this as any).value = matrix.replace(/./g, function (a: string): string {
             return /[_\d]/.test(a) && iterator < value.length ? value.charAt(iterator++) : iterator >= value.length ? '' : a;
         })
 
         if (e.type === 'blur') {
-            if (this.value.length == 2) {
-                this.value = '';
+            if ((this as any).value.length == 2) {
+                (this as any).value = '';
             } else {
-                setCursorPosition(this.value.length, this);
+                setCursorPosition((this as any).value.length, (this as any));
             }
         }
     }
