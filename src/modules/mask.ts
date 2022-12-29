@@ -1,7 +1,7 @@
 
 export const mask = (selector: string): void => {
 
-    const setCursorPosition = (pos: any, elem: any) => {
+    const setCursorPosition = (pos: number, elem: any) => {
         elem.focus();
         if (elem.setSelectionRange) {
             elem.setSelectionRange(pos, pos);
