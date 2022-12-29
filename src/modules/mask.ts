@@ -15,12 +15,13 @@ export const mask = (selector: string): void => {
         }
     }
 
-    const createMask = (e: any): void => {
+    const createMask = (e: Event): void => {
+       
         const matrix: string = `+7 (___) ___ __ __`;
         let iterator: number = 0;
         const def: string = matrix.replace(/\D/g, '');
         let value: string = (this as any).value.replace(/\D/g, '');
-
+    
         if (def.length >= value.length) {
             value = def
         }
