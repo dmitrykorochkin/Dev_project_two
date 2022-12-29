@@ -15,7 +15,7 @@ export const mask = (selector: string): void => {
         }
     }
 
-    function createMask (e: Event): void  {
+    function createMask (this:HTMLInputElement, e: Event): void  {
 
         const matrix: string = `+7 (___) ___ __ __`;
         let iterator: number = 0;
@@ -26,15 +26,15 @@ export const mask = (selector: string): void => {
         if (def.length >= value.length) {
             value = def
         }
-        (this as any).value = matrix.replace(/./g, function (a: string): string {
+        this.value = matrix.replace(/./g, function (a: string): string {
             return /[_\d]/.test(a) && iterator < value.length ? value.charAt(iterator++) : iterator >= value.length ? '' : a;
         })
 
         if (e.type === 'blur') {
-            if ((this as any).value.length == 2) {
-                (this as any).value = '';
+            if (this.value.length == 2) {
+                this.value = '';
             } else {
-                setCursorPosition((this as any).value.length, (this as any));
+                setCursorPosition(this.value.length, this);
             }
         }
     }
