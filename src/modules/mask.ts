@@ -15,7 +15,7 @@ export const mask = (selector: string): void => {
         }
     }
 
-    const createMask = (e: Event): void => {
+    function createMask (e: Event)  {
        
         const matrix: string = `+7 (___) ___ __ __`;
         let iterator: number = 0;
