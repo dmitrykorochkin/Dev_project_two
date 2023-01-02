@@ -1,5 +1,5 @@
 // import checkNumberInputs from './checkNumberInputs'
-
+import { postData } from "../services/request";
 
 export const form = (): void => {
     const forms: NodeListOf<HTMLFormElement> = document.querySelectorAll('form');
@@ -33,15 +33,6 @@ export const form = (): void => {
     const path: pathType = {
         designer: 'src/server.php',
         question: 'src/question.php'
-    }
-
-    const postData = async (url: string, data: string): Promise<string> => {
-        const res = await fetch(url, {
-            method: 'POST',
-            body: data
-        });
-
-        return await res.text();
     }
 
     const clearInputs = (): void => {
