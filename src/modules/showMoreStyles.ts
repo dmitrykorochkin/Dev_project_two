@@ -4,23 +4,25 @@ export const showMoreStyles = (trigger: string, styles: string): void => {
     const cards: NodeListOf<HTMLDivElement> = document.querySelectorAll(styles);
     const button: Element = document.querySelector(trigger) as HTMLButtonElement;
 
-    // cards.forEach(card => {
-    //     card.classList.add('animated', 'fadeInUp')
-    // })
-
-    // button.addEventListener('click', (): void => {
-    //     cards.forEach(card => {
-    //         card.classList.add('col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1',)
-    //         card.classList.remove('hidden-lg', 'hidden-sm', 'hidden-xs', 'hidden-md',)
-    //     })
-
-    //     button.remove()
-    // })
-
     button.addEventListener('click', () => {
         getResource('http://localhost:3000/styles')
-        .then(res => console.log(res));
+            .then(res => console.log(res));
     })
+
+    const createCards = (response): void => {
+        response.forEach(item => {
+            let card = document.createElement('div')
+            card.classList.add('animated', 'fadeInUp', 'col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1')
+
+            card.innerHTML = `
+                <div class=styles-block>
+                    <img src=${item.src} alt>
+                    <h4>${item.title}</h4>
+                    <a href="${item.link}">Подробнее</a>
+                </div>
+            `
+        })
+    }
 };
 
 // <div class="hidden-lg hidden-md hidden-sm hidden-xs styles-2">
