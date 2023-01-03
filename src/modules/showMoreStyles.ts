@@ -1,17 +1,19 @@
 import { getResource } from "../services/request";
 
-export const showMoreStyles = (trigger: string, styles: string): void => {
-    const cards: NodeListOf<HTMLDivElement> = document.querySelectorAll(styles);
+export const showMoreStyles = (trigger: string, wrapper: string): void => {
+    
     const button: Element = document.querySelector(trigger) as HTMLButtonElement;
 
-    button.addEventListener('click', () => {
+    button.addEventListener('click', function() {
         getResource('http://localhost:3000/styles')
-            .then(res => console.log(res));
-    })
+            .then(res => createCards(res))
 
-    const createCards = (response): void => {
+        this.remove();    
+    });
+
+    const createCards = (response: any): void => {
         response.forEach(item => {
-            let card = document.createElement('div')
+            let card: HTMLDivElement = document.createElement('div')
             card.classList.add('animated', 'fadeInUp', 'col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1')
 
             card.innerHTML = `
@@ -21,7 +23,9 @@ export const showMoreStyles = (trigger: string, styles: string): void => {
                     <a href="${item.link}">Подробнее</a>
                 </div>
             `
+            document.querySelector(wrapper).append(card);
         })
+        
     }
 };
 
