@@ -6,7 +6,7 @@ export const showMoreStyles = (trigger: string, wrapper: string): void => {
 
     button.addEventListener('click', function(this:HTMLInputElement):void {
         getResource('/src/db.json')
-            .then(res => createCards((res as HTMLElement).style))
+            .then(res => createCards(res))
 
         this.remove();
 
