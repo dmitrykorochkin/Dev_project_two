@@ -1,12 +1,13 @@
-import  {modals}  from './modules/modals';
-import {sliders} from './modules/sliders'
-import {form} from './modules/form'
-import {mask} from './modules/mask'
+import { modals } from './modules/modals';
+import { sliders } from './modules/sliders'
+import { form } from './modules/form'
+import { mask } from './modules/mask'
 import { checkTextInputs } from './modules/checkTextInputs';
-import {showMoreStyles} from './modules/showMoreStyles'
+import { showMoreStyles } from './modules/showMoreStyles';
+import { calc } from './modules/calc';
 
 window.addEventListener('DOMContentLoaded', (): void => {
- 
+
   modals();
   form();
   mask('[name="phone"]');
@@ -15,13 +16,14 @@ window.addEventListener('DOMContentLoaded', (): void => {
   showMoreStyles('.button-styles', '#styles .row');
 
   sliders({
-    slides: '.feedback-slider-item', 
+    slides: '.feedback-slider-item',
     dir: 'horizontal',
     prev: '.main-prev-btn',
     next: '.main-next-btn'
   });
   sliders({
-    slides:'.main-slider-item', 
-    dir:'vertical'
+    slides: '.main-slider-item',
+    dir: 'vertical'
   });
+  calc('#size', '#material', '#options', '.promocode', '.calc-price');
 });
