@@ -1,14 +1,15 @@
 import { getResource } from "../services/request";
 
-export const showMoreStyles = (trigger: string, wrapper: string): void => {
+export const showMoreStyles = (trigger: string, wrapper: NodeListOf<Element>): void => {
     
     const button: Element = document.querySelector(trigger) as HTMLButtonElement;
 
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function(this:HTMLInputElement):void {
         getResource('/src/db.json')
-            .then(res => createCards(res.styles))
+            .then(res => createCards(res.style))
 
-        this.remove();    
+        this.remove();
+
     });
 
     const createCards = (response: any): void => {
