@@ -25,5 +25,10 @@ window.addEventListener('DOMContentLoaded', (): void => {
     slides: '.main-slider-item',
     dir: 'vertical'
   });
-  calc('#size', '#material', '#options', '.promocode', '.calc-price');
+  calc({
+    size:'#size', 
+    material: '#material', 
+    options: '#options', 
+    promocode: '.promocode', 
+    result: '.calc-price'});
 });

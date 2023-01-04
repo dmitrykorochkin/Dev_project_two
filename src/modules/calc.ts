@@ -8,20 +8,20 @@ export const calc =
         result
     }:
 
-        {
-            size: number,
-            material: string,
-            options: string,
-            promocode: string,
-            result: string
-        }
+    {
+        size: string,
+        material: string,
+        options: string,
+        promocode: string,
+        result: string
+    }
 
     ): void => {
 
-        const sizeBlock: any = document.querySelector(size);
-        const materialBlock: any = document.querySelector(material);
-        const optionsBlock: any = document.querySelector(options);
-        const promocodeBlock: any = document.querySelector(promocode);
+        const sizeBlock = <HTMLInputElement>document.querySelector(size);
+        const materialBlock = <HTMLInputElement>document.querySelector(material);
+        const optionsBlock = <HTMLInputElement>document.querySelector(options);
+        const promocodeBlock = <HTMLInputElement>document.querySelector(promocode);
         const resultBlock: any = document.querySelector(result);
 
         let sum: number = 0;
@@ -29,13 +29,14 @@ export const calc =
         const calcFunc = (): void => {
             sum = Math.round((+sizeBlock.value) * (+materialBlock.value) + (+optionsBlock.value));
 
-            if (sizeBlock.value === '' || materialBlock.value === '') {
+            if (sizeBlock.value == '' || materialBlock.value == '') {
                 resultBlock.textContent = "Пожалуйста, выберете размер и материал картины";
             } else if (promocodeBlock.value === "IWANTPOPART") {
                 resultBlock.textContent = Math.round(sum * 0.7)
             } else {
                 resultBlock.textContent = sum;
             }
+
         };
 
         sizeBlock.addEventListener('change', calcFunc);
