@@ -4,17 +4,19 @@ export const showMoreStyles = (trigger: string, wrapper: string): void => {
     
     const button: Element = document.querySelector(trigger) as HTMLButtonElement;
 
+    interface IStyles {src: string, title: string, link: string}
+
     button.addEventListener('click', function(this:HTMLInputElement):void {
         getResource('/src/db.json')
-            .then(res => createCards(res.styles))
+        .then((res: { styles: IStyles[] }):void => createCards(res.styles))
 
-        this.remove();
+        this.remove()
 
     });
 
-    interface IStyle {src: string, title: string, link: string}
-    const createCards = (response: IStyle[]): void => {
-        response.forEach(({src, title, link}:IStyle):void => {
+    
+    const createCards = (response: IStyles[]): void => {
+        response.forEach(({src, title, link}:IStyles):void => {
             let card: HTMLDivElement = document.createElement('div')
             card.classList.add('animated', 'fadeInUp', 'col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1')
 
