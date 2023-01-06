@@ -1,4 +1,7 @@
+
 import { IStyles } from './../modules/showMoreStyles';
+
+
 
     const postData = async (url: string, data: string): Promise<string> => {
         const res = await fetch(url, {
@@ -8,8 +11,11 @@ import { IStyles } from './../modules/showMoreStyles';
 
         return await res.text();
     }
-    
+
     const getResource = async (url: string): Promise<{styles: IStyles[]}> => {
+
+    const getResource = async (url: string): Promise<string> => {
+
         const res = await fetch(url);
         
         if(!res.ok) {

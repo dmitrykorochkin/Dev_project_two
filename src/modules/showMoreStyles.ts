@@ -1,8 +1,12 @@
+
 import { getResource } from "../services/request";
 export interface IStyles {src: string, title: string, link: string}
 
 export const showMoreStyles = (trigger: string, wrapper: string): void => {
     
+
+export const showMoreStyles = (trigger: string, styles: string): void => {
+    const cards: NodeListOf<HTMLDivElement> = document.querySelectorAll(styles);
     const button: Element = document.querySelector(trigger) as HTMLButtonElement;
 
     
