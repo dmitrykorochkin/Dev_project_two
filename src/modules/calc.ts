@@ -24,10 +24,8 @@ export const calc =
         const promocodeBlock = <HTMLInputElement>document.querySelector(promocode);
         const resultBlock: any = document.querySelector(result);
 
-        let sum: number = 0;
-
         const calcFunc = (): void => {
-            sum = Math.round((+sizeBlock.value) * (+materialBlock.value) + (+optionsBlock.value));
+            const sum: number = Math.round((+sizeBlock.value) * (+materialBlock.value) + (+optionsBlock.value));
 
             if (sizeBlock.value == '' || materialBlock.value == '') {
                 resultBlock.textContent = "Пожалуйста, выберете размер и материал картины";
