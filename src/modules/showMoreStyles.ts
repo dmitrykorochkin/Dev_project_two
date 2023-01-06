@@ -1,14 +1,15 @@
 import { getResource } from "../services/request";
+export interface IStyles {src: string, title: string, link: string}
 
 export const showMoreStyles = (trigger: string, wrapper: string): void => {
     
     const button: Element = document.querySelector(trigger) as HTMLButtonElement;
 
-    interface IStyles {src: string, title: string, link: string}
+    
 
     button.addEventListener('click', function(this:HTMLInputElement):void {
         getResource('/src/db.json')
-        .then((res: { styles: IStyles[] }):void => createCards(res.styles))
+        .then((res: { styles: IStyles[] }) => createCards(res.styles))
 
         this.remove()
 
