@@ -51,10 +51,10 @@ export const filter = (): void => {
         typeFilter(markGirl);
     });
     btnGrandmother.addEventListener('click', (): void => {
-        typeFilter();
+        typeFilter(null);
     });
     btnGranddad.addEventListener('click', (): void => {
-        typeFilter();
+        typeFilter(null);
     })
 
     menu.addEventListener('click', (e: Event): void => {
