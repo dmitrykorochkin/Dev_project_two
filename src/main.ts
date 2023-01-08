@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
   checkTextInputs('[name="message"]');
   showMoreStyles('.button-styles', '#styles .row');
   filter();
-  picture('size-block');
+  picture('.sizes-block');
 
   sliders({
     slides: '.feedback-slider-item',
