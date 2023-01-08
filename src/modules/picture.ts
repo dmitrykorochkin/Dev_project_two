@@ -28,6 +28,4 @@ export const picture = (imgSelector: string): void => {
             });
         });
     };
-
-
 }
