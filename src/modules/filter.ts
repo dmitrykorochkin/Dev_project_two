@@ -16,7 +16,7 @@ export const filter = (): void => {
     const markGirl: NodeListOf<HTMLLIElement> = wrapper.querySelectorAll('.portfolio-menu');
     const no: HTMLElement = document.querySelector('.portfolio-menu')  as HTMLElement;
 
-    const typeFilter = (markType: any): void => {
+    const typeFilter = (markType: NodeListOf | null): void => {
         markAll.forEach((mark) => {
             mark.style.display = 'none';
             mark.classList.remove('animated', 'fadeIn');
@@ -58,7 +58,7 @@ export const filter = (): void => {
     })
 
     menu.addEventListener('click', (e: Event): void => {
-        const target: any = e.target;
+        const target = e.target as HTMLElement;
         if(target && target.tagName == 'LI') {
             items.forEach(btn => btn.classList.remove('active'))
             target.classList.add('active');
