@@ -1,4 +1,3 @@
-
 import { getResource } from "../services/request";
 export interface IStyles {src: string, title: string, link: string}
 

@@ -1,8 +1,6 @@
 
 import { IStyles } from './../modules/showMoreStyles';
 
-
-
     const postData = async (url: string, data: string): Promise<string> => {
         const res = await fetch(url, {
             method: 'POST',
