@@ -4,3 +4,4 @@ export { form } from './form';
 export { mask } from './mask';
 export { checkTextInputs } from './checkTextInputs';
 export { calc } from './calc';
+export { filter } from './filter';

@@ -14,7 +14,6 @@ import { IStyles } from './../modules/showMoreStyles';
 
     const getResource = async (url: string): Promise<{styles: IStyles[]}> => {
 
-    const getResource = async (url: string): Promise<string> => {
 
         const res = await fetch(url);
         
