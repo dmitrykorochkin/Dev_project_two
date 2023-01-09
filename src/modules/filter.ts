@@ -16,7 +16,7 @@ export const filter = (): void => {
     const markGirl: NodeListOf<HTMLLIElement> = wrapper.querySelectorAll('.portfolio-menu');
     const no: HTMLElement = document.querySelector('.portfolio-menu')  as HTMLElement;
 
-    const typeFilter = (markType: NodeListOf | null): void => {
+    const typeFilter = (markType: NodeListOf<HTMLLIElement> | null): void => {
         markAll.forEach((mark) => {
             mark.style.display = 'none';
             mark.classList.remove('animated', 'fadeIn');
