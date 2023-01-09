@@ -1,6 +1,6 @@
 export const filter = (): void => {
     const menu: HTMLElement = document.querySelector('.portfolio-menu') as HTMLElement;
-    const items: NodeListOf<HTMLLIElement> = menu.querySelectorAll('li');
+    const items: NodeListOf<HTMLElement> = menu.querySelectorAll('li');
     const btnAll: HTMLElement = menu.querySelector('.all') as HTMLElement;
     const btnLovers: HTMLElement = menu.querySelector('.lovers') as HTMLElement; 
     const btnChef: HTMLElement = menu.querySelector('.chef') as HTMLElement;
@@ -9,14 +9,14 @@ export const filter = (): void => {
     const btnGrandmother: HTMLElement = menu.querySelector('.grandmother') as HTMLElement;
     const btnGranddad: HTMLElement = document.querySelector('.granddad') as HTMLElement;
     const wrapper: HTMLElement = document.querySelector('.portfolio-wrapper') as HTMLElement;
-    const markAll: NodeListOf<HTMLLIElement>  = wrapper.querySelectorAll('.all');
-    const markLovers: NodeListOf<HTMLLIElement> = wrapper.querySelectorAll('.portfolio-menu');
-    const markChef: NodeListOf<HTMLLIElement> = wrapper.querySelectorAll('.portfolio-menu');
-    const markGuy: NodeListOf<HTMLLIElement> = wrapper.querySelectorAll('.portfolio-menu');
-    const markGirl: NodeListOf<HTMLLIElement> = wrapper.querySelectorAll('.portfolio-menu');
+    const markAll: NodeListOf<HTMLElement>  = wrapper.querySelectorAll('.all');
+    const markLovers: NodeListOf<HTMLElement> = wrapper.querySelectorAll('.portfolio-menu');
+    const markChef: NodeListOf<HTMLElement> = wrapper.querySelectorAll('.portfolio-menu');
+    const markGuy: NodeListOf<HTMLElement> = wrapper.querySelectorAll('.portfolio-menu');
+    const markGirl: NodeListOf<HTMLElement> = wrapper.querySelectorAll('.portfolio-menu');
     const no: HTMLElement = document.querySelector('.portfolio-menu')  as HTMLElement;
 
-    const typeFilter = (markType: NodeListOf | null): void => {
+    const typeFilter = (markType: NodeListOf<HTMLElement> | null): void => {
         markAll.forEach((mark) => {
             mark.style.display = 'none';
             mark.classList.remove('animated', 'fadeIn');
