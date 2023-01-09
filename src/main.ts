@@ -7,6 +7,7 @@ import { showMoreStyles } from './modules/showMoreStyles';
 import { calc } from './modules/calc';
 import { filter } from './modules/filter';
 import { picture } from './modules/picture';
+import { accordions } from './modules/accordions';
 
 window.addEventListener('DOMContentLoaded', (): void => {
 
@@ -18,6 +19,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
   showMoreStyles('.button-styles', '#styles .row');
   filter();
   picture('.sizes-block');
+  accordions('.accordion-heading');
 
   sliders({
     slides: '.feedback-slider-item',

@@ -6,3 +6,4 @@ export { checkTextInputs } from './checkTextInputs';
 export { calc } from './calc';
 export { filter } from './filter';
 export { picture } from './picture';
+export { accordions } from './accordions';
