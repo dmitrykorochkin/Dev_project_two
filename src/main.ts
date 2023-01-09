@@ -6,6 +6,7 @@ import { checkTextInputs } from './modules/checkTextInputs';
 import { showMoreStyles } from './modules/showMoreStyles';
 import { calc } from './modules/calc';
 import { filter } from './modules/filter';
+import { picture } from './modules/picture';
 
 window.addEventListener('DOMContentLoaded', (): void => {
 
@@ -16,6 +17,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
   checkTextInputs('[name="message"]');
   showMoreStyles('.button-styles', '#styles .row');
   filter();
+  picture('.sizes-block');
 
   sliders({
     slides: '.feedback-slider-item',
@@ -28,9 +30,10 @@ window.addEventListener('DOMContentLoaded', (): void => {
     dir: 'vertical'
   });
   calc({
-    size:'#size', 
-    material: '#material', 
-    options: '#options', 
-    promocode: '.promocode', 
-    result: '.calc-price'});
+    size: '#size',
+    material: '#material',
+    options: '#options',
+    promocode: '.promocode',
+    result: '.calc-price'
+  });
 });
