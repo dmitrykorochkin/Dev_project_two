@@ -7,9 +7,9 @@ export const accordions = (triggerSelector: string) => {
             (this.nextElementSibling as HTMLElement).classList.toggle('active-content');
 
             if (this.classList.contains('active-style')) {
-                (this.nextElementSibling as HTMLElement).style.maxHeight = (this.nextElementSibling as HTMLElement).scrollHeight + 80 + 'px';
+                (this.nextElementSibling as HTMLElement).style.maxHeight = `${this.nextElementSibling as HTMLElement}.${this.scrollHeight}80px`;
             } else {
-                (this.nextElementSibling as HTMLElement).style.maxHeight = '0px'
+                (this.nextElementSibling as HTMLElement).style.maxHeight = '0';
             }
         });
     });
