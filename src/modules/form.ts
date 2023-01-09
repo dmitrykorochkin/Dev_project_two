@@ -6,9 +6,6 @@ export const form = (): void => {
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input');
     const uploads: NodeListOf<HTMLInputElement> = document.querySelectorAll('[name="upload"]');
 
-
-    // checkNumberInputs('input[name="user_phone"]')
-
     type MessageType = {
         loading: string,
         success: string,
