@@ -1,3 +1,4 @@
+import { burger } from './modules/burger';
 import { modals } from './modules/modals';
 import { sliders } from './modules/sliders'
 import { form } from './modules/form'
@@ -20,6 +21,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
   filter();
   picture('.sizes-block');
   accordions('.accordion-heading');
+  burger('.burger-menu', '.burger')
 
   sliders({
     slides: '.feedback-slider-item',
