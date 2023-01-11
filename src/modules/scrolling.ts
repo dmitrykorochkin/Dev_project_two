@@ -78,13 +78,12 @@ export const scrolling = (upSelector: string) => {
         }
     })
 
-    for(let anchor of anchors) {
+    for(const anchor of Array.from(anchors)) {
         anchor.addEventListener('click', (e: Event) => {
             e.preventDefault();
-            const blockID: string = anchor.getAttribute('href')
-            document.querySelector('' + blockID)?.scrollIntoView({
+            const blockID: string = anchor.getAttribute('href') as string;
+            document.querySelector(blockID)?.scrollIntoView({
                 behavior: 'smooth',
-                block: 'start'
             })
         })
     }
