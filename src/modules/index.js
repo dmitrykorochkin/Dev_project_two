@@ -8,3 +8,4 @@ export { filter } from './filter';
 export { picture } from './picture';
 export { accordions } from './accordions';
 export { burger } from './burger';
+export { scrolling } from './scrolling';
