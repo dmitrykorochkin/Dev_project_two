@@ -1,7 +1,7 @@
-export const scrolling = (upSelector) => {
-    const upElem = document.querySelector(upSelector);
+export const scrolling = (upSelector: string) => {
+    const upElem: HTMLElement = document.querySelector(upSelector) as HTMLElement;
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', (): void => {
         if (document.documentElement.scrollTop > 1650) {
             upElem.classList.add('animated', 'fadeIn');
             upElem.classList.remove('fadeOut')
@@ -11,17 +11,17 @@ export const scrolling = (upSelector) => {
         }
     })
 
-    const element = document.documentElement;
-    const body = document.body;
+    const element: HTMLElement = document.documentElement;
+    const body: HTMLElement = document.body;
 
     const calcScroll = (): void => {
-        upElem.addEventListener('click', function (e: Event): void {
+        upElem.addEventListener('click', function (this: any, e: Event): void {
             const scrollTop = Math.round(body.scrollTop || element.scrollTop);
 
             if (this.hash !== '') {
                 e.preventDefault();
-                const hashElement = document.querySelector(this.hash);
-                const hashElementTop = 0
+                let hashElement: any = document.querySelector(this.hash);
+                let hashElementTop: number = 0
 
                 while (hashElement.offsetParent) {
                     hashElementTop += hashElement.offsetTop;
@@ -29,13 +29,11 @@ export const scrolling = (upSelector) => {
                 }
                 hashElementTop = Math.round(hashElementTop);
                 smoothScroll(scrollTop, hashElementTop, this.hash);
-
-
             }
         });
     };
 
-    const smoothScroll = (from, to, hash) => {
+    const smoothScroll = (from: number, to: number, hash: string) => {
         let timeInterval: number = 1;
         let prevScrollTop: number;
         let speed: number;
@@ -60,7 +58,7 @@ export const scrolling = (upSelector) => {
                 element.scrollTop += speed;
                 prevScrollTop = scrollTop
             }
-        }, timeInterval())
+        }, timeInterval)
     }
     calcScroll();
 };
