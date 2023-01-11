@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
   picture('.sizes-block');
   accordions('.accordion-heading');
   burger('.burger-menu', '.burger');
-  scrolling();
+  scrolling('.pageup');
 
   sliders({
     slides: '.feedback-slider-item',
