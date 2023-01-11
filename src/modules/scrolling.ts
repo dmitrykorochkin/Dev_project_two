@@ -20,12 +20,12 @@ export const scrolling = (upSelector: string) => {
 
             if (this.hash !== '') {
                 e.preventDefault();
-                let hashElement: any = document.querySelector(this.hash);
+                let hashElement: HTMLElement = document.querySelector(this.hash) as HTMLElement;
                 let hashElementTop: number = 0
 
                 while (hashElement.offsetParent) {
                     hashElementTop += hashElement.offsetTop;
-                    hashElement = hashElement.offsetParent
+                    (hashElement as Element) = hashElement.offsetParent
                 }
                 hashElementTop = Math.round(hashElementTop);
                 smoothScroll(scrollTop, hashElementTop, this.hash);
