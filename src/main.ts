@@ -9,6 +9,7 @@ import { calc } from './modules/calc';
 import { filter } from './modules/filter';
 import { picture } from './modules/picture';
 import { accordions } from './modules/accordions';
+import { scrolling } from './modules/scrolling';
 
 window.addEventListener('DOMContentLoaded', (): void => {
 
@@ -21,7 +22,8 @@ window.addEventListener('DOMContentLoaded', (): void => {
   filter();
   picture('.sizes-block');
   accordions('.accordion-heading');
-  burger('.burger-menu', '.burger')
+  burger('.burger-menu', '.burger');
+  scrolling();
 
   sliders({
     slides: '.feedback-slider-item',
