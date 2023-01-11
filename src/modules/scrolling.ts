@@ -44,7 +44,7 @@ export const scrolling = (upSelector: string) => {
             speed = -30;
         }
 
-        const move = setInterval(() => {
+        const move = setInterval((): void => {
             const scrollTop = Math.round(body.scrollTop || element.scrollTop);
 
             if (prevScrollTop === scrollTop ||
