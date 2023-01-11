@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
   filter();
   picture('.sizes-block');
   accordions('.accordion-heading');
-  burger('.burger-menu', '.burger')
+  burger('.burger-menu', '.burger');
 
   sliders({
     slides: '.feedback-slider-item',
