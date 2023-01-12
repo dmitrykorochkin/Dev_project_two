@@ -1,6 +1,6 @@
-export const drop = (): void =>{
+export const drop = (): void => {
 
-    const fileInputs = document.querySelectorAll('[name="upload"]');
+    const fileInputs: NodeListOf<Element> = document.querySelectorAll('[name="upload"]');
 
     ['dragenter', 'dragleave', 'dragover', 'drop'].forEach(eventName => {
         fileInputs.forEach(input => {
@@ -9,16 +9,20 @@ export const drop = (): void =>{
     })
     function preventDefault(e: Event) {
         e.preventDefault();
-        e.stopPropagation();
+        e.stopPropagation(); 
     }
 
-    const highlight = (item) => {
-        item.closest('.file_upload').style.border = '5px solid green';
-        item.closest('.file_upload').style.backgroundColor = 'rgba(0,0,0, .7)';
+    const highlight = (item: any): void => {
+        item.closest('.file_upload').style.border = '2px solid pink';
+        item.closest('.file_upload').style.backgroundColor = 'rgba(0,0,0, .1)';
     }
-    const unhighlight = (item): void => {
+    const unhighlight = (item: any): void => {
         item.closest('.file_upload').style.border = 'none';
-        item.closest('.file_upload').style.backgroundColor = '#fff)';
+        if(item.closest('.calc_form')) {
+            item.closest('.file_upload').style.backgroundColor = "fff555"
+        } else {
+            item.closest('.file_upload').style.backgroundColor = '#ededed)';
+        }  
     }
     ['dragenter', 'dragover'].forEach(eventName => {
         fileInputs.forEach(input => {
@@ -30,4 +34,16 @@ export const drop = (): void =>{
             input.addEventListener(eventName, ()=> unhighlight(input), false);
         });
     });
+
+    fileInputs.forEach(input => {
+        input.addEventListener('drop', (e: Event): void => {
+            input.files = e.dataTransfer.files;
+            const file = (input.files as FileList)[0];
+            const fileName:string = file.name.split('.')[0];
+            const dots: string = fileName.length > 6 ? '...' : '.';
+            const fileExt = file.name.split('.')[1];
+            const name: string = `${fileName.toString().substring(0, 6)}${dots}${fileExt}`;
+            (input.previousElementSibling as HTMLElement).textContent = name;
+        })
+    })
 }
