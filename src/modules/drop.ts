@@ -12,17 +12,18 @@ export const drop = (): void => {
         e.stopPropagation(); 
     }
 
-    const highlight = (item: any): void => {
-        const closest: HTMLElement = item.closest('.file_upload')
+    const highlight = (item: HTMLElement): void => {
+        const closest: HTMLElement = item.closest('.file_upload') as HTMLElement;
         closest.style.border = '2px solid pink';
         closest.style.backgroundColor = 'rgba(0,0,0, .1)';
     }
-    const unhighlight = (item: any): void => {
-        item.closest('.file_upload').style.border = 'none';
+    const unhighlight = (item: HTMLElement): void => {
+        const closest = item.closest('.file_upload') as HTMLElement;
+        closest.style.border = 'none';
         if(item.closest('.calc_form')) {
-            item.closest('.file_upload').style.backgroundColor = "fff555"
+            closest.style.backgroundColor = "fff555"
         } else {
-            item.closest('.file_upload').style.backgroundColor = '#ededed)';
+            closest.style.backgroundColor = '#ededed)';
         }  
     }
     ['dragenter', 'dragover'].forEach(eventName => {
@@ -40,9 +41,8 @@ export const drop = (): void => {
         input.addEventListener('drop', (e: DragEvent): void => {
             input.files = (e.dataTransfer as DataTransfer).files;
             const file = (input.files as FileList)[0];
-            const fileName:string = file.name.split('.')[0];
+            const [fileName, fileExt]:string = file.name.split('.')[0];
             const dots: string = fileName.length > 6 ? '...' : '.';
-            const fileExt = file.name.split('.')[1];
             const name: string = `${fileName.toString().substring(0, 6)}${dots}${fileExt}`;
             (input.previousElementSibling as HTMLElement).textContent = name;
         })
