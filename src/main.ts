@@ -10,6 +10,7 @@ import { filter } from './modules/filter';
 import { picture } from './modules/picture';
 import { accordions } from './modules/accordions';
 import { scrolling } from './modules/scrolling';
+import { drop} from './modules/drop';
 
 window.addEventListener('DOMContentLoaded', (): void => {
 
@@ -24,6 +25,7 @@ window.addEventListener('DOMContentLoaded', (): void => {
   accordions('.accordion-heading');
   burger('.burger-menu', '.burger');
   scrolling('.pageup');
+  drop();
 
   sliders({
     slides: '.feedback-slider-item',

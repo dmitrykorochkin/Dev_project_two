@@ -9,3 +9,4 @@ export { picture } from './picture';
 export { accordions } from './accordions';
 export { burger } from './burger';
 export { scrolling } from './scrolling';
+export { drop } from './drop';
